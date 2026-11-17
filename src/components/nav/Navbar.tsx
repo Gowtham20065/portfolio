@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-mono font-medium tracking-wide text-[#9CA3AF]">
+          <nav className="hidden lg:flex items-center gap-6 text-xs font-mono font-medium tracking-wide text-[#9CA3AF]">
             <a href="#projects" className="hover:text-[#3B82F6] transition-colors">
               <span className="text-[#06B6D4] mr-1">01</span>PROJECTS
             </a>
@@ -53,15 +53,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             <a href="#philosophy" className="hover:text-[#3B82F6] transition-colors">
               <span className="text-[#06B6D4] mr-1">03</span>APPROACH
             </a>
+            <a href="#research" className="hover:text-[#3B82F6] transition-colors">
+              <span className="text-[#06B6D4] mr-1">04</span>RESEARCH
+            </a>
             <a href="#education" className="hover:text-[#3B82F6] transition-colors">
-              <span className="text-[#06B6D4] mr-1">04</span>EDUCATION
+              <span className="text-[#06B6D4] mr-1">05</span>EDUCATION
             </a>
             <button
               onClick={onOpenTerminal}
               className="hover:text-[#06B6D4] transition-colors flex items-center gap-1.5"
             >
               <Terminal className="w-3.5 h-3.5 text-[#3B82F6]" />
-              <span className="text-[#06B6D4] mr-1">05</span>CLI_SHELL
+              <span className="text-[#06B6D4] mr-1">06</span>CLI_SHELL
             </button>
           </nav>
 
@@ -111,11 +114,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
               <span className="text-[#06B6D4] mr-1">03</span>ENGINEERING APPROACH
             </a>
             <a
+              href="#research"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block hover:text-[#E5E7EB] py-1"
+            >
+              <span className="text-[#06B6D4] mr-1">04</span>CURRENT RESEARCH
+            </a>
+            <a
               href="#education"
               onClick={() => setMobileMenuOpen(false)}
               className="block hover:text-[#E5E7EB] py-1"
             >
-              <span className="text-[#06B6D4] mr-1">04</span>EDUCATION & HONORS
+              <span className="text-[#06B6D4] mr-1">05</span>EDUCATION & HONORS
             </a>
             <button
               onClick={() => {

@@ -26,6 +26,13 @@ export interface Metric {
   badge: string;
 }
 
+export interface ResearchTopic {
+  title: string;
+  category: string;
+  description: string;
+  status: string;
+}
+
 export const PORTFOLIO_DATA = {
   identity: {
     name: "Boda Gowtham",
@@ -39,7 +46,7 @@ export const PORTFOLIO_DATA = {
     arrears: "Zero Active Backlogs",
     github: "https://github.com/gowtham20065",
     linkedin: "https://linkedin.com/in/gowtham-boda",
-    email: "gowthamboda2004@gmail.com",
+    email: "gowthamboda234@gmail.com",
     resumePdf: "./Gowtham_Boda_Resume.pdf",
     aboutMe:
       "I am an Integrated M.Tech Software Engineering student at VIT-AP University. I enjoy building reliable backend systems, high-concurrency architectures, and verifiable AI agent pipelines. Rather than relying on unverified outputs, I focus on mathematical determinism, clean POSIX foundations, and robust test suites.",
@@ -262,6 +269,31 @@ def encode_lsb_audio(audio_samples: np.ndarray, bitstream: np.ndarray) -> np.nda
       ],
     },
   ],
+
+  researchInterests: [
+    {
+      title: "Verifiable Autonomous Agents & AST Test Oracles",
+      category: "AI Systems Verification",
+      description:
+        "Investigating formal verification methods, compiler-guided sandboxes, and AST-level execution constraints to establish mathematical bounds on non-deterministic LLM code and tabular outputs.",
+      status: "Active Exploration",
+    },
+    {
+      topic: "High-Throughput In-Memory Concurrency & Kernel Primatives",
+      title: "In-Memory Concurrency & Distributed Transaction Isolation",
+      category: "Distributed Systems",
+      description:
+        "Studying lock-free concurrent data structures, atomic in-memory script engines, and distributed consensus models to eliminate network-induced race conditions at high throughput.",
+      status: "System Prototyping",
+    },
+    {
+      title: "Cryptographic Payload Embedding & Codec Robustness",
+      category: "Security & Applied Cryptography",
+      description:
+        "Analyzing resilient bitwise steganographic encoding algorithms across modern multimedia codecs, evaluating spectral entropy bounds and HMAC-authenticated payload integrity.",
+      status: "Benchmarking",
+    },
+  ] as ResearchTopic[],
 
   engineeringPhilosophy: [
     {

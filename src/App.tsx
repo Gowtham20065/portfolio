@@ -5,6 +5,7 @@ import { ProofStrip } from './components/metrics/ProofStrip';
 import { ProjectsSection } from './components/projects/ProjectsSection';
 import { TechnicalArsenal } from './components/skills/TechnicalArsenal';
 import { EngineeringPrinciples } from './components/philosophy/EngineeringPrinciples';
+import { ResearchInterests } from './components/research/ResearchInterests';
 import { Milestones } from './components/timeline/Milestones';
 import { Footer } from './components/footer/Footer';
 import { RecruiterTerminal } from './components/terminal/RecruiterTerminal';
@@ -13,26 +14,29 @@ export function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#0A0B09] text-[#F4F4F0] selection:bg-[#B6F23A] selection:text-[#0E0F0C]">
-      {/* Docked Monospace Navigation HUD */}
+    <div className="relative min-h-screen bg-[#0F172A] text-[#E5E7EB] selection:bg-[#3B82F6] selection:text-white">
+      {/* Docked Navigation HUD */}
       <Navbar onOpenTerminal={() => setIsTerminalOpen(true)} />
 
       {/* Main Content Sections */}
       <main>
-        {/* Hero with Interactive AST Canvas */}
+        {/* Hero Section */}
         <Hero onOpenTerminal={() => setIsTerminalOpen(true)} />
 
-        {/* 4-Column Proof & Telemetry Bento Strip */}
+        {/* 4-Column Proof & Telemetry Strip */}
         <ProofStrip />
 
         {/* 4 Flagship Production Systems with Interactive AST/Lua Demos */}
         <ProjectsSection />
 
-        {/* Depth-First Technical Arsenal */}
+        {/* Depth-First Technical Skills */}
         <TechnicalArsenal />
 
-        {/* Core Engineering Theses */}
+        {/* Core Engineering Approach */}
         <EngineeringPrinciples />
+
+        {/* Current Research & Innovative Exploration */}
+        <ResearchInterests />
 
         {/* Academic & Benchmark Milestones */}
         <Milestones />
