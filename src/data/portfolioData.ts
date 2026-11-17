@@ -31,7 +31,7 @@ export const PORTFOLIO_DATA = {
     name: "Boda Gowtham",
     role: "Software & Systems Engineer",
     status: "Graduating 2027 · Open to Software Engineering Roles",
-    location: "Hyderabad / Amaravati, India",
+    location: "Amaravathi, India",
     university: "VIT-AP University",
     degree: "Integrated M.Tech in Software Engineering",
     duration: "2022 — 2027",

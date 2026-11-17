@@ -100,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTerminal }) => {
             <div className="text-[#E5E7EB]">BODA GOWTHAM · PORTFOLIO</div>
             <div className="text-[#64748B]">Built with React 18, TypeScript & Tailwind CSS</div>
             <div className="text-[10px] text-[#64748B]">
-              VIT-AP University · Hyderabad / Amaravati, India
+              VIT-AP University · Amaravathi, India
             </div>
           </div>
         </div>
