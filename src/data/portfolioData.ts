@@ -1,13 +1,13 @@
 export interface Project {
   id: string;
-  sysId: string;
+  badge: string;
   title: string;
   tagline: string;
   category: string;
   tags: string[];
   problem: string;
   solution: string;
-  impactMetrics: { label: string; value: string }[];
+  keyResults: { label: string; value: string }[];
   codeSnippet: {
     filename: string;
     language: string;
@@ -24,80 +24,74 @@ export interface Metric {
   unit?: string;
   subtext: string;
   badge: string;
-  verified: boolean;
 }
 
 export const PORTFOLIO_DATA = {
   identity: {
     name: "Boda Gowtham",
-    regNo: "22MIS7190",
-    role: "Systems & Agentic AI Engineer",
-    status: "ACTIVE SEEKER — GRADUATING 2027",
+    role: "Software & Systems Engineer",
+    status: "Graduating 2027 · Open to Software Engineering Roles",
     location: "Hyderabad / Amaravati, India",
     university: "VIT-AP University",
     degree: "Integrated M.Tech in Software Engineering",
     duration: "2022 — 2027",
     cgpa: "8.55 / 10.0",
-    arrears: "0 (Zero Active Arrears)",
+    arrears: "Zero Active Backlogs",
     github: "https://github.com/gowtham20065",
     linkedin: "https://linkedin.com/in/gowtham-boda",
     email: "gowthamboda2004@gmail.com",
-    resumePdf: "/Gowtham_Boda_Resume.pdf",
-    shortBio:
-      "Software Engineering scholar building deterministic verification sandboxes for LLM agents and high-concurrency distributed backends. Focused on trading probabilistic hallucinations for provable mathematical execution.",
+    resumePdf: "./Gowtham_Boda_Resume.pdf",
+    aboutMe:
+      "I am an Integrated M.Tech Software Engineering student at VIT-AP University. I enjoy building reliable backend systems, high-concurrency architectures, and verifiable AI agent pipelines. Rather than relying on unverified outputs, I focus on mathematical determinism, clean POSIX foundations, and robust test suites.",
   },
 
-  telemetryMetrics: [
+  highlights: [
     {
       label: "National Benchmark",
       value: "99.85",
       unit: "%ile",
       subtext: "Young Turks 2026 National CS & Algorithmic Assessment",
-      badge: "TOP 0.15% NATIONWIDE",
-      verified: true,
+      badge: "Top 0.15% Nationwide",
     },
     {
-      label: "Academic Standing",
+      label: "Academic Performance",
       value: "8.55",
       unit: "/ 10.0",
       subtext: "Integrated M.Tech in Software Engineering (VIT-AP)",
-      badge: "ZERO BACKLOGS · DISTINCTION",
-      verified: true,
+      badge: "Zero Backlogs · Distinction",
     },
     {
-      label: "Execution Integrity",
+      label: "Code Integrity",
       value: "100",
       unit: "% Pass",
-      subtext: "Automated PyTest suites & AST zero-privilege sandboxes",
-      badge: "DETERMINISTIC TEST SUITES",
-      verified: true,
+      subtext: "Automated test suites with PyTest & AST validation sandboxes",
+      badge: "Deterministic Testing",
     },
     {
-      label: "Production Repos",
+      label: "Open Source Projects",
       value: "4+",
-      unit: "Flagships",
-      subtext: "Open-source verified architectures on GitHub",
-      badge: "TESTED ON REAL HARDWARE",
-      verified: true,
+      unit: "Featured",
+      subtext: "Full-stack and backend systems open-sourced on GitHub",
+      badge: "Verified Architectures",
     },
   ] as Metric[],
 
-  flagshipProjects: [
+  projects: [
     {
       id: "agentic-drhp",
-      sysId: "SYS_01 // AGENTIC_ORACLE",
-      title: "Agentic Financial & DRHP Document Verification Pipeline",
-      tagline: "Cyclic LangGraph state machine with deterministic Python AST arithmetic sandboxing.",
+      badge: "AI Agent & Evaluation Pipeline",
+      title: "Agentic Financial & Document Verification Pipeline",
+      tagline: "Cyclic LangGraph agent with deterministic Python AST arithmetic sandboxing.",
       category: "Agentic Systems & Verification",
       tags: ["Python 3.11", "LangGraph", "Python AST", "PyMuPDF", "ChromaDB", "PyTest"],
       problem:
-        "LLMs routinely suffer from arithmetic drift and hallucinated summaries when parsing complex financial tables, balance sheets, and Draft Red Herring Prospectus (DRHP) documents spanning hundreds of dense pages.",
+        "When parsing multi-page financial reports (like Draft Red Herring Prospectus documents) and complex balance sheets, standard LLM prompts often introduce subtle arithmetic errors and hallucinated table totals.",
       solution:
-        "Engineered a cyclic LangGraph evaluation pipeline that marries PyMuPDF document-stream extraction with a zero-privilege Python AST sandbox. Vector search handles semantic document retrieval, while all calculations are intercepted by an ast.NodeVisitor that parses, validates, and executes mathematical expressions in isolation, rejecting unverified outputs.",
-      impactMetrics: [
+        "I built a cyclic LangGraph pipeline that extracts document streams with PyMuPDF, retrieves semantic chunks via ChromaDB, and intercepts every mathematical calculation with an isolated Python AST visitor. The sandbox validates and executes arithmetic deterministically, preventing unverified calculations from ever reaching the user.",
+      keyResults: [
         { label: "Arithmetic Drift", value: "0% (Eliminated)" },
-        { label: "Execution Sandbox", value: "Zero-Privilege AST" },
-        { label: "Extraction Format", value: "Cyclic Stream Repair" },
+        { label: "Validation Sandbox", value: "Python AST Visitor" },
+        { label: "Error Recovery", value: "Cyclic LangGraph Loop" },
       ],
       codeSnippet: {
         filename: "evaluator/ast_sandbox.py",
@@ -123,26 +117,26 @@ class SafeArithmeticVisitor(ast.NodeVisitor):
         if not isinstance(node.value, (int, float)):
             raise TypeError("Only real numbers permitted in table validation")
         return node.value`,
-        explanation: "Python AST NodeVisitor intercepts and verifies every mathematical expression emitted by the agent, enforcing strict bounds and zero-privilege evaluation.",
+        explanation: "My AST visitor intercepts expressions emitted by the agent, enforcing strict bounds and zero-privilege calculation.",
       },
       interactiveType: "ast-simulator",
       githubUrl: "https://github.com/gowtham20065/agentic-drhp-analysis",
     },
     {
       id: "realestate-hub",
-      sysId: "SYS_02 // CONCURRENT_REDIS",
-      title: "RealEstateHub — High-Concurrency Multi-Tenant Backend",
-      tagline: "Atomic Redis Lua token buckets, distributed locks, and containerized PostgreSQL persistence.",
-      category: "High-Concurrency Backend",
+      badge: "High-Concurrency Backend",
+      title: "RealEstateHub — High-Concurrency Property Platform",
+      tagline: "Atomic Redis Lua rate-limiting, distributed locks, and containerized PostgreSQL persistence.",
+      category: "Backend Architecture",
       tags: ["TypeScript", "Node.js", "Express", "Redis Lua", "Prisma", "PostgreSQL", "Docker Compose"],
       problem:
-        "Rapid booking surges cause destructive race conditions on database row locks and overwhelm REST endpoints during promotional bursts without tenant-aware throttling.",
+        "Sudden booking spikes and traffic bursts can trigger race conditions on database row locks and degrade API availability without tenant-aware throttling.",
       solution:
-        "Designed an enterprise multi-tenant property management engine utilizing atomic Redis Lua scripts to execute token-bucket rate limiting and distributed locks in a single network round-trip. Persists relational schemas with Prisma and PostgreSQL, orchestrated via multi-container Docker Compose.",
-      impactMetrics: [
-        { label: "Distributed Lock Latency", value: "< 5ms (In-Memory)" },
+        "I designed an enterprise property backend utilizing atomic Redis Lua scripts to execute token-bucket rate limiting and distributed locks in a single in-memory network round-trip. Relational data is modeled with Prisma and PostgreSQL, orchestrated via Docker Compose.",
+      keyResults: [
+        { label: "Lock Evaluation Latency", value: "< 5ms (In-Memory)" },
         { label: "Race Conditions", value: "0 Detected" },
-        { label: "Infrastructure", value: "Docker Multi-Container" },
+        { label: "Infrastructure", value: "Docker Compose" },
       ],
       codeSnippet: {
         filename: "src/infrastructure/redis/token_bucket.lua",
@@ -161,26 +155,26 @@ else
     end
     return 1 -- Allowed: Atomic token allocated
 end`,
-        explanation: "Atomic Lua script executed directly in Redis RAM, eliminating network-induced race conditions between checking limits and incrementing counters.",
+        explanation: "Atomic Lua script executed directly in Redis RAM, eliminating race conditions between checking capacity and incrementing counters.",
       },
       interactiveType: "redis-lua",
       githubUrl: "https://github.com/gowtham20065/realestate-hub",
     },
     {
       id: "stegocli",
-      sysId: "SYS_03 // CRYPTO_POSIX",
-      title: "StegoCLI — Cryptographic POSIX Media Stream Utility",
+      badge: "Systems & Cryptography",
+      title: "StegoCLI — Cryptographic Media Stream CLI",
       tagline: "Bit-level LSB injection across 2D NumPy matrices and signed int16 audio buffers with AES-256.",
-      category: "Systems & Cryptography",
+      category: "Systems & Security",
       tags: ["Python 3.11", "NumPy", "Cryptography", "AES-256 CBC", "PBKDF2", "POSIX I/O", "PyTest"],
       problem:
-        "Hiding secure data within audio waveforms or bitmap structures often leads to audible clicking, visual shearing, or unauthenticated payloads that can be trivially detected by spectral analysis.",
+        "Hiding encrypted data inside audio files or bitmaps can easily introduce audible audio distortion or obvious visual artifacts if bitwise sign overflows are unhandled.",
       solution:
-        "Engineered a Linux POSIX command-line utility reading standard I/O streams and raw binary files. Implemented bitwise Least Significant Bit (LSB) injection into 2D NumPy image matrices and signed int16 audio waveform buffers. Hardened payloads with AES-256 encryption in CBC mode with PBKDF2 (100,000 rounds) and HMAC verification.",
-      impactMetrics: [
-        { label: "Waveform Degradation", value: "0 Audible Shearing" },
-        { label: "KDF Iterations", value: "100k Rounds PBKDF2" },
-        { label: "CLI Standard", value: "POSIX Argument Spec" },
+        "I built a Linux command-line tool parsing standard POSIX I/O streams. It performs bitwise Least Significant Bit (LSB) injection across 2D NumPy matrices and signed int16 audio buffers, encrypting payloads with AES-256 in CBC mode and deriving keys with PBKDF2 (100,000 rounds).",
+      keyResults: [
+        { label: "Waveform Degradation", value: "0 Audible Distortion" },
+        { label: "Key Derivation", value: "100k Rounds PBKDF2" },
+        { label: "Interface", value: "Standard POSIX CLI" },
       ],
       codeSnippet: {
         filename: "stego/engine.py",
@@ -195,126 +189,118 @@ def encode_lsb_audio(audio_samples: np.ndarray, bitstream: np.ndarray) -> np.nda
     # Mask out the least significant bit and bitwise-OR with encrypted payload bit
     encoded[:n_bits] = (encoded[:n_bits] & ~1) | bitstream
     return encoded`,
-        explanation: "NumPy vectorized bitwise masking on signed 16-bit audio samples, preventing integer overflow while embedding cryptographic payloads.",
+        explanation: "NumPy vectorized bitwise masking on signed 16-bit audio samples, preventing integer overflow while embedding payloads.",
       },
       interactiveType: "stego-matrix",
       githubUrl: "https://github.com/gowtham20065/Image-Steganography",
     },
     {
       id: "fluxstep-pro",
-      sysId: "SYS_04 // LAYOUT_SOLVER",
+      badge: "Algorithms & Frontend",
       title: "FluxStep Pro — Constraint-Based Layout Engine",
       tagline: "Topological DAG solver computing dynamic multi-surface component geometry.",
-      category: "Frontend Architecture & Algorithms",
-      tags: ["TypeScript", "React", "Directed Acyclic Graphs", "Tailwind CSS", "Constraint Solver"],
+      category: "Algorithms & UI Architecture",
+      tags: ["TypeScript", "React", "DAG Layouts", "Tailwind CSS", "Constraint Solver"],
       problem:
-        "Multi-surface dynamic marketing widgets break when container aspect ratios shift unpredictably or nested flexbox rules trigger repetitive browser reflow thrashing.",
+        "Dynamic multi-surface widgets often experience layout shifts and browser reflow thrashing when container boundaries resize unexpectedly.",
       solution:
-        "Created an algorithmic layout calculation engine that represents UI elements as a Directed Acyclic Graph (DAG), performing a topological sort to compute exact pixel dimensions and spatial hierarchy prior to DOM painting.",
-      impactMetrics: [
-        { label: "Layout Complexity", value: "O(V + E) Linear" },
+        "I built a layout computation engine that models UI element hierarchies as a Directed Acyclic Graph (DAG), performing a topological sort to compute exact pixel dimensions and spatial boundaries prior to DOM painting.",
+      keyResults: [
+        { label: "Computational Complexity", value: "O(V + E) Linear" },
         { label: "DOM Reflows", value: "Pre-computed 1-Pass" },
       ],
       codeSnippet: {
         filename: "src/engine/dagSolver.ts",
         language: "typescript",
         code: `export function resolveDAGLayout(nodes: LayoutNode[], edges: DependencyEdge[]): ResolvedBox[] {
-  const inDegree = new Map<string, number>();
-  // Initialize dependency graph and perform topological ordering
-  // to compute exact layout constraints in a single deterministic pass...
+  // Model UI components as a Directed Acyclic Graph (DAG)
+  // Compute topological order to calculate bounding boxes in a single pass...
   return computeBoundingBoxes(topologicalOrder);
 }`,
-        explanation: "Topological graph ordering computes geometric layout constraints before committing updates to the browser DOM.",
+        explanation: "Topological graph ordering computes layout constraints cleanly before committing updates to the browser DOM.",
       },
       interactiveType: "dag-solver",
       githubUrl: "https://github.com/gowtham20065/Adaptive-Layout-Engine-for-Multi-Surface-Ads",
     },
   ] as Project[],
 
-  technicalArsenal: [
+  technicalSkills: [
     {
-      category: "Systems & Concurrency",
+      category: "Backend & Systems",
       skills: [
-        { name: "Redis Lua Scripting", level: "Advanced", desc: "Atomic token buckets & distributed lock primitives" },
-        { name: "POSIX Streams & CLI", level: "Advanced", desc: "Linux pipes, stdin/stdout redirection, signal handling" },
-        { name: "Docker & Containerization", level: "Proficient", desc: "Multi-service compose, isolated network bridges" },
-        { name: "Vectorized Operations", level: "Proficient", desc: "NumPy 2D matrix transformations & signed buffers" },
+        { name: "TypeScript & Node.js", desc: "Asynchronous backend services, Express.js REST APIs" },
+        { name: "Redis & Lua Scripting", desc: "Atomic token buckets, distributed locking primitives" },
+        { name: "PostgreSQL & Prisma", desc: "Relational schemas, ACID transactions, migrations" },
+        { name: "Docker & Containerization", desc: "Multi-service container setups with Docker Compose" },
       ],
     },
     {
-      category: "Agentic AI & Verification",
+      category: "AI & Verification",
       skills: [
-        { name: "LangGraph State Machines", level: "Advanced", desc: "Cyclic self-correcting agent execution loops" },
-        { name: "Python AST Sandboxing", level: "Advanced", desc: "ast.NodeVisitor zero-privilege arithmetic validation" },
-        { name: "Vector Retrieval & RAG", level: "Proficient", desc: "ChromaDB embeddings & hybrid keyword search" },
-        { name: "Automated Test Oracles", level: "Advanced", desc: "PyTest property-based tests & boundary validation" },
+        { name: "Python 3.11+", desc: "Modern type hints, OOP, dataclasses, generators" },
+        { name: "LangGraph State Machines", desc: "Cyclic multi-step agent pipelines with error recovery" },
+        { name: "Python AST Sandboxing", desc: "ast.NodeVisitor zero-privilege expression validation" },
+        { name: "Vector Search & RAG", desc: "ChromaDB embedding stores & semantic chunk retrieval" },
       ],
     },
     {
-      category: "Backend & Data Engines",
+      category: "Core Foundations",
       skills: [
-        { name: "TypeScript & Node.js", level: "Advanced", desc: "Strictly typed asynchronous services & REST APIs" },
-        { name: "PostgreSQL & Prisma", level: "Proficient", desc: "Relational schemas, foreign constraints & ACID transactions" },
-        { name: "Python 3.11+", level: "Expert", desc: "Modern type hints, concurrency, generators, dataclasses" },
-        { name: "Express.js Architecture", level: "Proficient", desc: "Layered controller-service-repository patterns" },
+        { name: "Data Structures & Algos", desc: "99.85th percentile national rank, graph algorithms" },
+        { name: "Automated Testing", desc: "PyTest property tests, boundary validation, test oracles" },
+        { name: "POSIX Streams & Linux", desc: "Standard I/O redirection, shell utilities, permissions" },
+        { name: "Git & Version Control", desc: "Clean branch workflows, atomic commits, PR reviews" },
       ],
     },
     {
-      category: "Core Foundations & Toolchain",
+      category: "Frontend & Tooling",
       skills: [
-        { name: "Data Structures & Algos", level: "Expert", desc: "99.85th percentile national rank, graph algorithms" },
-        { name: "Git & Version Control", level: "Proficient", desc: "Clean branch workflows, atomic commits, PR reviews" },
-        { name: "Linux / UNIX Shell", level: "Proficient", desc: "Bash scripting, system diagnostics, permissions" },
-        { name: "Tailwind CSS & React", level: "Proficient", desc: "High-performance reactive interfaces & design systems" },
+        { name: "React 18 & TypeScript", desc: "Functional components, custom hooks, reactive state" },
+        { name: "Tailwind CSS", desc: "Responsive layout design, modern utility-first CSS" },
+        { name: "NumPy Vectorization", desc: "2D matrix operations, signed audio buffer manipulation" },
+        { name: "Vite & Tooling", desc: "Fast build orchestration, bundle optimization" },
       ],
     },
   ],
 
-  engineeringTheses: [
+  engineeringPhilosophy: [
     {
       number: "01",
       title: "Verifiability Over Probability",
-      summary: "LLMs are engines of plausibility, not truth.",
+      summary: "AI outputs should be verified, not assumed.",
       elaboration:
-        "In production software, an agent must never emit unverified financial or scientific calculations. My architecture intercepts generative outputs with deterministic Python AST evaluation sandboxes where arithmetic is parsed, executed in isolation, and mathematically verified before response serialization.",
+        "LLMs are helpful generative assistants, but critical business calculations require deterministic verification. In my projects, I pair probabilistic models with isolated AST evaluation sandboxes so that arithmetic is mathematically proven before being presented.",
     },
     {
       number: "02",
-      title: "Atomic Isolation Over Optimistic Locks",
-      summary: "Network hops destroy high-concurrency database integrity.",
+      title: "Atomic In-Memory Isolation",
+      summary: "Prevent race conditions before they hit the database.",
       elaboration:
-        "Distributed race conditions must be neutralized in-memory before ever reaching PostgreSQL. By executing rate limits and token buckets via Redis Lua scripts, evaluation and allocation occur in a single atomic hop with zero lock contention.",
+        "Rather than relying on fragile optimistic locks across network round-trips, executing critical rate limits and lock acquisitions via Redis Lua scripts keeps operations atomic in RAM and protects PostgreSQL from lock contention.",
     },
     {
       number: "03",
-      title: "UNIX Simplicity Over Dependency Bloat",
-      summary: "Clean POSIX pipelines outlive transient frameworks.",
+      title: "Clean Foundations & Tested Code",
+      summary: "Code should be simple, testable, and reliable.",
       elaboration:
-        "Reliable software builds on POSIX primitives: standard I/O pipes, predictable exit codes, and minimal external dependencies. When code relies on mathematically grounded structures like NumPy matrices or AST visitors, it runs deterministically anywhere.",
+        "I favor standard POSIX streams, mathematical structures, and comprehensive test suites over unnecessary framework complexity. When software is well-tested, it remains maintainable and predictable.",
     },
   ],
 
-  academicChronology: [
+  education: [
     {
       period: "2022 — 2027 (Ongoing)",
       institution: "VIT-AP University, Amaravati",
-      title: "Integrated M.Tech in Software Engineering",
+      degree: "Integrated M.Tech in Software Engineering",
       score: "CGPA: 8.55 / 10.0",
-      details: "Zero active backlogs. Focus on Advanced Data Structures, Distributed Computing, Database Internals, and Compiler Principles.",
+      details: "Zero active backlogs. Coursework in Advanced Data Structures, Database Systems, Distributed Computing, and Compiler Principles.",
     },
     {
       period: "2026",
       institution: "Young Turks National Assessment",
-      title: "National Engineering & CS Benchmark",
+      degree: "National Computer Science Benchmark",
       score: "99.85 Percentile",
-      details: "Scored in the top 0.15% nationwide among engineering students in core algorithmic reasoning and software engineering fundamentals.",
-    },
-    {
-      period: "2022",
-      institution: "Pre-University & High School",
-      title: "Higher Secondary Certificate (PCM)",
-      score: "Distinction",
-      details: "Rigorous focus on advanced mathematics, discrete logic, and foundational programming.",
+      details: "Ranked in the top 0.15% nationwide among engineering students in core algorithmic reasoning and software engineering fundamentals.",
     },
   ],
 };

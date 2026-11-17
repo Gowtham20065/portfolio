@@ -22,46 +22,46 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0A0B09]/90 backdrop-blur-md border-b border-white/[0.08] py-3'
+          ? 'bg-[#0F172A]/90 backdrop-blur-md border-b border-[#334155] py-3.5 shadow-lg shadow-black/20'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Identity & Live Status Pill */}
+          {/* Prominent Name & Title */}
           <div className="flex items-center gap-3">
             <a
               href="#"
-              className="font-mono text-sm font-semibold tracking-wider text-white hover:text-[#B6F23A] transition-colors flex items-center gap-2"
+              className="text-lg sm:text-xl font-bold tracking-tight text-[#E5E7EB] hover:text-[#3B82F6] transition-colors flex items-center gap-2.5"
             >
-              <span className="w-2 h-2 rounded-full bg-[#B6F23A] animate-pulse"></span>
-              <span>GOWTHAM.SYS</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4] shadow-[0_0_8px_#06B6D4]"></span>
+              <span>Boda Gowtham</span>
             </a>
-            <span className="hidden md:inline-block text-xs font-mono px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#9A9E95]">
-              {PORTFOLIO_DATA.identity.regNo} · SE-MTECH
+            <span className="hidden md:inline-block text-xs font-mono px-2.5 py-1 rounded bg-[#1E293B] border border-[#334155] text-[#9CA3AF]">
+              Integrated M.Tech (SE) · VIT-AP
             </span>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-mono tracking-wider text-[#9A9E95]">
-            <a href="#systems" className="hover:text-white transition-colors">
-              <span className="text-[#B6F23A] mr-1">01</span>SYSTEMS
+          <nav className="hidden lg:flex items-center gap-7 text-xs font-mono font-medium tracking-wide text-[#9CA3AF]">
+            <a href="#projects" className="hover:text-[#3B82F6] transition-colors">
+              <span className="text-[#06B6D4] mr-1">01</span>PROJECTS
             </a>
-            <a href="#arsenal" className="hover:text-white transition-colors">
-              <span className="text-[#B6F23A] mr-1">02</span>ARSENAL
+            <a href="#skills" className="hover:text-[#3B82F6] transition-colors">
+              <span className="text-[#06B6D4] mr-1">02</span>SKILLS
             </a>
-            <a href="#theses" className="hover:text-white transition-colors">
-              <span className="text-[#B6F23A] mr-1">03</span>PRINCIPLES
+            <a href="#philosophy" className="hover:text-[#3B82F6] transition-colors">
+              <span className="text-[#06B6D4] mr-1">03</span>APPROACH
             </a>
-            <a href="#academics" className="hover:text-white transition-colors">
-              <span className="text-[#B6F23A] mr-1">04</span>ACADEMICS
+            <a href="#education" className="hover:text-[#3B82F6] transition-colors">
+              <span className="text-[#06B6D4] mr-1">04</span>EDUCATION
             </a>
             <button
               onClick={onOpenTerminal}
-              className="hover:text-[#B6F23A] transition-colors flex items-center gap-1.5"
+              className="hover:text-[#06B6D4] transition-colors flex items-center gap-1.5"
             >
-              <Terminal className="w-3.5 h-3.5 text-[#B6F23A]" />
-              <span className="text-[#B6F23A] mr-1">05</span>CLI_SHELL
+              <Terminal className="w-3.5 h-3.5 text-[#3B82F6]" />
+              <span className="text-[#06B6D4] mr-1">05</span>CLI_SHELL
             </button>
           </nav>
 
@@ -70,15 +70,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             <a
               href={PORTFOLIO_DATA.identity.resumePdf}
               download="Gowtham_Boda_Resume.pdf"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#B6F23A] text-[#0E0F0C] text-xs font-mono font-bold tracking-wide hover:bg-[#a6e228] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-[0_0_15px_rgba(182,242,58,0.2)]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#3B82F6] text-white text-xs font-mono font-semibold tracking-wide hover:bg-[#2563EB] transition-all transform hover:-translate-y-0.5 shadow-md shadow-blue-500/20"
             >
               <FileDown className="w-3.5 h-3.5" />
-              <span>RESUME [PDF]</span>
+              <span>RESUME PDF</span>
             </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 rounded text-[#9A9E95] hover:text-white hover:bg-white/[0.05]"
+              className="lg:hidden p-1.5 rounded text-[#9CA3AF] hover:text-[#E5E7EB] hover:bg-[#1E293B]"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -88,44 +88,44 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
 
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 pt-3 border-t border-white/[0.08] bg-[#0E0F0C]/95 backdrop-blur-xl p-4 rounded-md space-y-3 font-mono text-xs text-[#9A9E95]">
+          <div className="lg:hidden mt-3 pt-3 border-t border-[#334155] bg-[#1E293B]/95 backdrop-blur-xl p-4 rounded-lg space-y-3 font-mono text-xs text-[#9CA3AF] shadow-xl">
             <a
-              href="#systems"
+              href="#projects"
               onClick={() => setMobileMenuOpen(false)}
-              className="block hover:text-white py-1"
+              className="block hover:text-[#E5E7EB] py-1"
             >
-              <span className="text-[#B6F23A] mr-1">01</span>SYSTEMS SHOWCASE
+              <span className="text-[#06B6D4] mr-1">01</span>FEATURED PROJECTS
             </a>
             <a
-              href="#arsenal"
+              href="#skills"
               onClick={() => setMobileMenuOpen(false)}
-              className="block hover:text-white py-1"
+              className="block hover:text-[#E5E7EB] py-1"
             >
-              <span className="text-[#B6F23A] mr-1">02</span>TECHNICAL ARSENAL
+              <span className="text-[#06B6D4] mr-1">02</span>TECHNICAL SKILLS
             </a>
             <a
-              href="#theses"
+              href="#philosophy"
               onClick={() => setMobileMenuOpen(false)}
-              className="block hover:text-white py-1"
+              className="block hover:text-[#E5E7EB] py-1"
             >
-              <span className="text-[#B6F23A] mr-1">03</span>ENGINEERING PRINCIPLES
+              <span className="text-[#06B6D4] mr-1">03</span>ENGINEERING APPROACH
             </a>
             <a
-              href="#academics"
+              href="#education"
               onClick={() => setMobileMenuOpen(false)}
-              className="block hover:text-white py-1"
+              className="block hover:text-[#E5E7EB] py-1"
             >
-              <span className="text-[#B6F23A] mr-1">04</span>ACADEMIC TIMELINE
+              <span className="text-[#06B6D4] mr-1">04</span>EDUCATION & HONORS
             </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenTerminal();
               }}
-              className="flex items-center gap-2 text-[#B6F23A] py-1"
+              className="flex items-center gap-2 text-[#06B6D4] py-1"
             >
-              <Terminal className="w-4 h-4" />
-              <span>LAUNCH RECRUITER CLI</span>
+              <Terminal className="w-4 h-4 text-[#3B82F6]" />
+              <span>OPEN TERMINAL SHELL</span>
             </button>
           </div>
         )}

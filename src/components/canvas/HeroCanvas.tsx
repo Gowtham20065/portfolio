@@ -7,13 +7,13 @@ interface NodeParticle {
   vy: number;
   baseRadius: number;
   label: string;
-  isOp: boolean;
+  isPrimary: boolean;
 }
 
-const AST_LABELS = [
-  'BinOp', 'SafeVisitor', 'TokenBucket', 'Mutex', 'AST.Node',
-  'Vector', 'Redis.Lua', 'NumPy.Matrix', 'LSB.Mask', 'DAG.Sort',
-  'PyMuPDF', 'PyTest', 'Prisma.Tx', 'POSIX.IO', 'ChromaDB'
+const SYSTEM_NODES = [
+  'TypeScript', 'Python', 'Redis', 'Docker', 'PostgreSQL',
+  'LangGraph', 'Python.AST', 'NumPy', 'Prisma', 'PyTest',
+  'VectorSearch', 'POSIX.IO', 'Express', 'React', 'ChromaDB'
 ];
 
 export const HeroCanvas: React.FC = () => {
@@ -30,7 +30,6 @@ export const HeroCanvas: React.FC = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Mouse coordinates
     let mouse = { x: -1000, y: -1000, active: false };
 
     const handleResize = () => {
@@ -56,30 +55,27 @@ export const HeroCanvas: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Generate Nodes
     const isMobile = width < 768;
-    const nodeCount = isMobile ? 22 : 45;
+    const nodeCount = isMobile ? 20 : 40;
     const particles: NodeParticle[] = [];
 
     for (let i = 0; i < nodeCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
         baseRadius: Math.random() * 2 + 2,
-        label: AST_LABELS[i % AST_LABELS.length],
-        isOp: i % 4 === 0,
+        label: SYSTEM_NODES[i % SYSTEM_NODES.length],
+        isPrimary: i % 3 === 0,
       });
     }
 
-    // Pause when off-screen using IntersectionObserver
     const observer = new IntersectionObserver(([entry]) => {
       isVisible = entry.isIntersecting;
     });
     observer.observe(canvas);
 
-    // Render loop
     const render = () => {
       if (!isVisible) {
         animationFrameId = requestAnimationFrame(render);
@@ -88,18 +84,18 @@ export const HeroCanvas: React.FC = () => {
 
       ctx.clearRect(0, 0, width, height);
 
-      // Draw Connection Edges
+      // Draw connection lines in Electric Blue / Cyan
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = isMobile ? 110 : 150;
+          const maxDist = isMobile ? 100 : 140;
 
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.22;
+            const alpha = (1 - dist / maxDist) * 0.2;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(182, 242, 58, ${alpha})`;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -110,45 +106,42 @@ export const HeroCanvas: React.FC = () => {
 
       // Update & Draw Nodes
       particles.forEach((p) => {
-        // Subtle mouse repulsion/attraction
         if (mouse.active) {
           const dx = mouse.x - p.x;
           const dy = mouse.y - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 180) {
-            const force = (180 - dist) / 180;
-            p.x -= (dx / dist) * force * 1.5;
-            p.y -= (dy / dist) * force * 1.5;
+          if (dist < 160) {
+            const force = (160 - dist) / 160;
+            p.x -= (dx / dist) * force * 1.2;
+            p.y -= (dy / dist) * force * 1.2;
           }
         }
 
-        // Velocity movement
         p.x += p.vx;
         p.y += p.vy;
 
-        // Bounce on boundaries
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Draw Node Core
+        // Node circle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.baseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = p.isOp ? '#B6F23A' : '#71766D';
+        ctx.fillStyle = p.isPrimary ? '#06B6D4' : '#3B82F6';
         ctx.fill();
 
-        // Node Glow for operator nodes
-        if (p.isOp) {
+        // Subtle glow for primary nodes
+        if (p.isPrimary) {
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.baseRadius * 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(182, 242, 58, 0.08)';
+          ctx.arc(p.x, p.y, p.baseRadius * 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(6, 182, 212, 0.15)';
           ctx.fill();
         }
 
-        // Draw Monospace Label
+        // Monospace label
         if (!isMobile) {
-          ctx.font = '9px "Geist Mono", monospace';
-          ctx.fillStyle = p.isOp ? 'rgba(182, 242, 58, 0.7)' : 'rgba(154, 158, 149, 0.4)';
-          ctx.fillText(p.label, p.x + 7, p.y + 3);
+          ctx.font = '10px "Geist Mono", monospace';
+          ctx.fillStyle = p.isPrimary ? 'rgba(6, 182, 212, 0.7)' : 'rgba(156, 163, 175, 0.45)';
+          ctx.fillText(p.label, p.x + 8, p.y + 3);
         }
       });
 
@@ -169,7 +162,7 @@ export const HeroCanvas: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0 opacity-70"
+      className="absolute inset-0 pointer-events-none z-0 opacity-60"
     />
   );
 };

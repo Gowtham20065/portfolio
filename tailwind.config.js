@@ -8,29 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        void: '#0A0B09',
-        substrate: '#0E0F0C',
-        surface: '#141612',
-        elevated: '#1B1E18',
-        card: '#121410',
-        lime: {
-          400: '#B6F23A',
-          500: '#9EE022',
-          900: '#2A4A0A',
+        navy: {
+          900: '#0B1120',
+          base: '#0F172A', // Background Base
+          card: '#1E293B', // Card / Section Background
+          border: '#334155', // Border tone
+          hover: '#273549',
         },
-        paper: '#F1F0EC',
-        dim: '#71766D',
-        faint: '#353932',
+        accent: {
+          blue: '#3B82F6', // Primary Accent (Electric Blue)
+          cyan: '#06B6D4', // Secondary Accent (Cyan)
+        },
+        text: {
+          primary: '#E5E7EB', // Light Gray / White
+          secondary: '#9CA3AF', // Muted Gray
+          muted: '#64748B',
+        },
       },
       fontFamily: {
         mono: ['"Geist Mono"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
-        display: ['"Syne"', '"Inter"', 'system-ui', 'sans-serif'],
-      },
-      letterSpacing: {
-        tighter: '-0.04em',
-        tight: '-0.02em',
-        widest: '0.15em',
+        display: ['"Inter"', 'system-ui', 'sans-serif'],
       },
     },
   },
